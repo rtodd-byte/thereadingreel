@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | The Reading Reel</title>
+<meta name="description" content="Contact Katie at The Reading Reel.">
+<meta property="og:title" content="Contact | The Reading Reel">
+<meta property="og:description" content="Contact Katie at The Reading Reel.">
+<meta property="og:image" content="https://www.thereadingreel.com/images/logo.png">
+<link rel="icon" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400&family=Forum&family=Jost:wght@300;400;500&family=Montserrat:wght@800&family=Nunito+Sans:wght@400;600&family=Playfair+Display:ital,wght@1,700&family=Poiret+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html"><img src="images/logo.png" alt="The Reading Reel"></a>
+    <button class="menu-toggle" aria-label="Open menu" onclick="document.getElementById('menu').classList.toggle('open')">&#9776;</button>
+    <ul class="menu" id="menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="freebies.html">Freebies</a></li>
+      <li><a href="book-online.html">Book Online</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <h1 class="contact-title">CONTACT US</h1>
+  <!-- This form opens the visitor's email app with their message addressed to thereadingreel@gmail.com. -->
+  <form class="contact-form" id="contact-form">
+    <div class="left">
+      <input name="name" placeholder="Name" required>
+      <input name="email" type="email" placeholder="Email" required>
+      <input name="subject" placeholder="Subject">
+    </div>
+    <textarea name="message" placeholder="Type your question here..." required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+<script>
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var f = e.target;
+  var body = f.message.value + '\n\n' + f.name.value + '\n' + f.email.value;
+  window.location.href = 'mailto:thereadingreel@gmail.com?subject=' + encodeURIComponent(f.subject.value || 'Question from the website') + '&body=' + encodeURIComponent(body);
+});
+</script>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="top">
+      <span>&copy; <span class="yr">2026</span> The Reading Reel. All rights reserved.</span>
+      <div class="socials">
+        <a href="https://www.instagram.com/thereadingreel/" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.5 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg></a>
+        <a href="https://www.tiktok.com/@thereadingreel" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2h3a5 5 0 0 0 4 4v3a8 8 0 0 1-4-1.2V15a6 6 0 1 1-6-6v3.2A2.8 2.8 0 1 0 14 15V2z"/></svg></a>
+      </div>
+    </div>
+    <a class="contact-pill" href="contact.html">Contact Us</a>
+  </div>
+</footer>
+
+<script>document.querySelectorAll('.yr').forEach(e=>e.textContent=new Date().getFullYear());</script>
+</body>
+</html>
